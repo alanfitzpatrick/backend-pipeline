@@ -1,34 +1,38 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { cn } from "./utils"
 
 function App() {
-  const [count, setCount] = useState(0)
+  const menuClasses = cn(
+    "flex items-center px-5 py-2 cursor-pointer text-slate-800 hover:bg-gray-300"
+  )
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div className="flex flex-row"> 
+      <aside className="flex">
+        <div className="h-screen py-8 overflow-y-auto border-l border-r w-80 bg-gray-50 border-gray-200">
+          <h2 className="px-5 pb-6 text-lg font-medium text-slate-700 ">
+            Applications
+          </h2>
+
+          <div className="text-slate-800" onClick={() => null}>
+            <div className={menuClasses}>
+              <span className="text-sm">Pipelines</span>
+            </div>
+          </div>
+
+          <div className="text-slate-800" onClick={() => null}>
+            <div className={menuClasses}>
+              <span className="text-sm">Deployments</span>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <main className="flex">
+        <div className="p-8">
+          <h1 className="text-2xl font-semibold text-slate-800">Pipelines</h1>
+        </div>
+      </main>
+    </div>
   )
 }
 
